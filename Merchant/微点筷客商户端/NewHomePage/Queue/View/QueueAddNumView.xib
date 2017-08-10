@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="QueueAddNumView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pz6-HD-Y7W">
+                    <rect key="frame" x="20" y="179" width="335" height="308"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="姓氏（选填）" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YA-Tr-YHr">
+                            <rect key="frame" x="25" y="71" width="97" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWB-ts-rwr">
+                            <rect key="frame" x="169" y="77" width="62" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="  先生" image="椭圆-2">
+                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" title="先生" image="queue_circle"/>
+                            <connections>
+                                <action selector="manClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="tYb-bV-oK0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apY-RM-TgO">
+                            <rect key="frame" x="250" y="77" width="58" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title=" 女士" image="椭圆-2">
+                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" title="nv"/>
+                            <connections>
+                                <action selector="manClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="h2W-Pd-49x"/>
+                                <action selector="womenClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ypM-80-wJe"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="手机号（选填）" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rjt-CE-fHm">
+                            <rect key="frame" x="30" y="120" width="278" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOs-ZU-W9Z">
+                            <rect key="frame" x="39" y="192" width="68" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title=" 2人桌" image="椭圆-2">
+                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="categoryClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Cp-TJ-fhf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9uZ-i0-8xE">
+                            <rect key="frame" x="129" y="192" width="69" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title=" 4人桌" image="椭圆-2">
+                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="categoryClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="7kl-az-lxu"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NoM-ag-Oym">
+                            <rect key="frame" x="223" y="192" width="72" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="多人桌" image="椭圆-2">
+                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="categoryClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="KgC-3L-ohq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ck1-D9-osw">
+                            <rect key="frame" x="252" y="246" width="56" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.99215686270000003" green="0.45882352939999999" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="并打印">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="现场排号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpD-Hr-c7t">
+                            <rect key="frame" x="116" y="27" width="95" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Du5-UF-5Eq">
+                            <rect key="frame" x="30" y="246" width="97" height="42"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.58118551969528198" green="0.7922065258026123" blue="0.7843480110168457" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal" title="仅排号">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-q9-rKF">
+                            <rect key="frame" x="304" y="12" width="13" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" backgroundImage="queue_cha"/>
+                            <connections>
+                                <action selector="cancelButtonClick" destination="iN0-l3-epB" eventType="touchUpInside" id="5JM-QT-oKk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.36649186643835618" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Pz6-HD-Y7W" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JzL-G3-o89"/>
+                <constraint firstItem="Pz6-HD-Y7W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="XhC-aQ-qi5"/>
+                <constraint firstItem="Pz6-HD-Y7W" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="oJb-40-gDS"/>
+                <constraint firstItem="Pz6-HD-Y7W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="179" id="zFg-nA-krT"/>
+            </constraints>
+            <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backView" destination="Pz6-HD-Y7W" id="4dR-7I-fpa"/>
+                <outlet property="cancelButton" destination="CS5-q9-rKF" id="Hfo-mA-Bvv"/>
+                <outlet property="justQueueBT" destination="Du5-UF-5Eq" id="oOT-H0-V99"/>
+                <outlet property="manBT" destination="EWB-ts-rwr" id="ai3-cN-J9t"/>
+                <outlet property="nameTextField" destination="9YA-Tr-YHr" id="zut-8a-IFx"/>
+                <outlet property="phoneTextF" destination="Rjt-CE-fHm" id="TJ8-hT-bFg"/>
+                <outlet property="printBT" destination="ck1-D9-osw" id="hcI-Vk-L9C"/>
+                <outlet property="titleLabeel" destination="GpD-Hr-c7t" id="bqr-lI-S9X"/>
+                <outlet property="womenBT" destination="apY-RM-TgO" id="gq4-pp-507"/>
+                <outletCollection property="selectArr" destination="oOs-ZU-W9Z" id="zXm-Yf-eVy"/>
+                <outletCollection property="selectArr" destination="9uZ-i0-8xE" id="XJ8-py-uDX"/>
+                <outletCollection property="selectArr" destination="NoM-ag-Oym" id="Cez-2I-H9I"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="queue_cha" width="10" height="11"/>
+        <image name="queue_circle" width="14" height="14"/>
+        <image name="椭圆-2" width="16" height="16"/>
+    </resources>
+</document>

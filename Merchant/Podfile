@@ -1,0 +1,32 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'merchantClient' do
+pod 'SDAutoLayout', '~> 2.1.4'
+pod 'AFNetworking', '~> 3.1.0'
+pod 'SDWebImage', '~> 3.8.1'
+pod 'MJRefresh', '~> 3.1.12'
+pod 'MBProgressHUD', '~> 1.0.0'
+pod 'SDCycleScrollView', '~> 1.65'
+pod 'IQKeyboardManager', '~> 4.0.4'
+pod 'MJExtension', '~> 3.0.13'
+pod 'AMapSearch', '~> 4.1.0'
+pod 'AMap2DMap', '~> 4.1.1'
+pod 'CocoaAsyncSocket'
+pod 'YYKit', '~> 1.0.7'
+pod 'WebViewJavascriptBridge', '~> 5.0'
+pod 'DZNEmptyDataSet', '~> 1.8.1'
+#pod 'UITableView+FDTemplateLayoutCell_Bell', '~> 1.5.0'
+  # Pods for merchantClient
+
+  target 'merchantClientTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'merchantClientUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

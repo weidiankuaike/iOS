@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" focusStyle="custom" rowHeight="90" id="KGk-i7-Jjw" customClass="NewActivityCell">
+            <rect key="frame" x="0.0" y="0.0" width="473" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="473" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥5\n立减" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RH-SF-7fd">
+                        <rect key="frame" x="8" y="18" width="110" height="54"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="Acy-Jg-CpN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                        <color key="textColor" red="0.96198230981826782" green="0.68303215503692627" blue="0.046186894178390503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-9-14至2016-10-5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGT-fW-dLQ">
+                        <rect key="frame" x="179" y="60" width="276" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="6Zp-qe-KBg"/>
+                            <constraint firstAttribute="width" constant="276" id="zKd-ig-TRA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消费满200元可使用此优惠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ez-jY-GD7">
+                        <rect key="frame" x="179" y="30" width="276" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4gJ-ZM-ZSj"/>
+                            <constraint firstAttribute="width" constant="276" id="Ade-bV-Kcf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消费满200元自动发放此卡券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-dU-gv8">
+                        <rect key="frame" x="179" y="8" width="286" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9RH-SF-7fd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="2ik-Yk-MXg"/>
+                    <constraint firstItem="4Ez-jY-GD7" firstAttribute="top" secondItem="YcL-dU-gv8" secondAttribute="bottom" constant="1" id="3WM-g2-Riy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4Ez-jY-GD7" secondAttribute="trailing" constant="10" id="6D1-Xr-8LD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="9RH-SF-7fd" secondAttribute="bottom" constant="9.5" id="GTJ-IO-jWp"/>
+                    <constraint firstItem="YcL-dU-gv8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="IOY-JQ-Fez"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NGT-fW-dLQ" secondAttribute="trailing" constant="10" id="KDA-QE-c8u"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YcL-dU-gv8" secondAttribute="trailing" id="M1h-Wr-Gqg"/>
+                    <constraint firstItem="YcL-dU-gv8" firstAttribute="leading" secondItem="9RH-SF-7fd" secondAttribute="trailing" constant="61" id="OG3-t6-dX2"/>
+                    <constraint firstItem="NGT-fW-dLQ" firstAttribute="top" secondItem="4Ez-jY-GD7" secondAttribute="bottom" id="W7Y-YC-t1u"/>
+                    <constraint firstItem="NGT-fW-dLQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="25.75" id="cfD-qW-3FC"/>
+                    <constraint firstItem="9RH-SF-7fd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jgq-Fc-f4M"/>
+                    <constraint firstItem="9RH-SF-7fd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="kfa-HA-8u4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="conditionLabel" destination="4Ez-jY-GD7" id="IRR-P6-ddg"/>
+                <outlet property="dicountLabel" destination="9RH-SF-7fd" id="FXE-yG-cBP"/>
+                <outlet property="distributeLabel" destination="YcL-dU-gv8" id="HkI-J9-UaA"/>
+                <outlet property="timeLabel" destination="NGT-fW-dLQ" id="Tyd-GG-bT9"/>
+            </connections>
+            <point key="canvasLocation" x="12.5" y="100"/>
+        </tableViewCell>
+    </objects>
+</document>

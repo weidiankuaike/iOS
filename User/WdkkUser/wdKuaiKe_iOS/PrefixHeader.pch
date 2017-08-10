@@ -1,0 +1,163 @@
+//
+//  PrefixHeader.pch
+//  wdKuaiKe_iOS
+//
+//  Created by Skyer God on 16/8/3.
+//  Copyright © 2016年 weiDianKuaiKe. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "ViewController.h" //作为父视图容器控制器
+#import "BaseTableViewCell.h"
+#import "AppDelegate.h"
+#define kHeight(h) ([UIScreen mainScreen].bounds.size.height / 667 * h)
+#define kWidth(w) ([UIScreen mainScreen].bounds.size.width / 375 * w)
+
+#define kScreenWith [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
+
+#define autoScaleW(width) [(AppDelegate *)[UIApplication sharedApplication].delegate autoScaleW:width]
+#define autoScaleH(height) [(AppDelegate *)[UIApplication sharedApplication].delegate autoScaleH:height]
+
+#define PhoneIP [(AppDelegate*)[UIApplication sharedApplication].delegate getIPAddress:YES]
+
+#define Token  [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]
+#define Userid [[NSUserDefaults standardUserDefaults]objectForKey:@"idd"]
+
+#import "LLHConst.h"
+
+
+
+//#pragma mark -- 导入三方库头文件
+
+#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+#import <MJRefresh.h>
+#import <SDImageCache.h>
+#import <SDAutoLayout.h>
+#import "UIImageView+WebCache.h"
+#import "MJExtension.h"
+#import "NSString+ZTExtension.h"
+#import "NSObject+JudgeNull.h"
+#import "UIView+SSExtension.h"
+#import "NSString+ZTExtension.h"
+//网络请求单例
+
+#import "NetworkSingleton.h"
+#import "CalculateStringTool.h"
+#import "NSString+Expend.h"
+#import "ZTMd5Security.h"//MD5加密
+#define isLocationConnect 0//1本地0远程
+//#define LocaltionURL @"http://192.168.31.2:8083/" //LHJy6t
+#define LocaltionURL @"http://192.168.31.3:8083/" //ZK
+//#define LocaltionURL @"http://192.168.31.4:8082/" //ST
+#define tempUR @"http://192.168.31.128:8083/" //ZK
+//cos
+#define COSID @"1252398168"
+//腾讯
+#define TXYTAppid @"1105647682"
+//post
+#define commonUrl @"https://api.wdkk.mobi"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+//信鸽
+#define XGappid 2200254481
+#define XGAppkey @"IHC439S32IPU"
+//支付宝
+//appid
+#define Appid @"2016090801870168"
+//pid
+#define Pid @"2088421553023263"
+//私钥
+//#define MD5Key @"wvflhejcttboy8vmo4dkmcq0rheumq2b"
+#define PRIVATEKEY @"MIIEowIBAAKCAQEA3W0RUxlRlgrVpE4eSn5oCKE3yYAMzS1z42XyXfvp6C26spJSGEZeFNmX7p/Tvn/ULGQ6K4x9vrcFGjjU1fAwHEeSNMlGxBpfJmCxoU75844qb7NRg9N8nUZ+GPIwIWZoN0uciWAnSbJoovgj8P+DuHSMxWSpsHR7QPQvaurr7XLA2OaGyGV2mNh5VJdOISBr9E5F1mr6gcyIpU+TvLIdiWYOQyJl6ty1Fq0sW2Jvt/gEhmPpk3nuu35hxTbj2pDDTPl1ZK+44V0CgIcwuR7+IaLPIr1tRiKqOXWMjbkpxU/PPMnYJNHwl1fNxfgQqQ0JuoouJIuOzDIzBUhxiUnOwIDAQABAoIBAGlwzpcrr1YrwqCDMpl2qEOzwcUKXQ43XsAig8+Nbk1JuWXfl4hHufVjyJ2xLjvA02BwOeMS+64dqShbd76IqeBNlKneTvyDMlwsH2oZGZ2JTVvzoBWOWADs2I84hQLiqS3rq5cfWpYVhw5T64mPo0Hq/j3hOYz1atv7a7kWNVLUNwdmbbaeyKb5eiPa+qr3o99At+8zSnHgMPYozcCVzc2BCaOjxROWY72RE84H223ygeL2MAxo/El0Xgru4FKNMtxzEb3IOo7776zr+4ZIOXdf5IViphLvTF1Nfb+I26M6HyZ/UoweIfgcR4NEHcagCUVfAIm2WzkvbhgtYyd/e0ECgYEA/wg9tjzrYXu2fBvkbrSkepPGkVeCH3/fgqTJUthspZJnGrki7s+f8x0w3YlAYNmZGnRJtibplZAAadZpffNtVm77nRXTKGsEtWBJ5/esVpLTrjLvdx4FJHnWSGbzuYlx0QOIjRsmW7oZtTi54PKY3GzRSnChs122dfAsSDgRVW0CgYEA3kQtyv2xFN6kHN/NMz4icOTbQFdxZ+0JJyfilvXfEf9AChgM+F3m86QXyFVLuoihy0fowxk03nPD9a0FDBek8Ya+Tbq+qo7kosQBPgc8FenJ/y83hTzt/8W3/HX2XLG0eS2upXb3VtE4UGuaCO/bcBhEACMiHfHuSZv2ibdEjkcCgYEA9S7ZFYDP0nJ7aCnwnTXyAx5bApQct2faW+FM4+bJ3Qw5L4nZubnGTpY7ymAPkozgEnzF+ObEHlPI8fd+h+YlsbkVEVpQHUV1y2H865RDDSAvfgPeEKi9zOmNRyIjIrauw4EgIHh/kiQCXyVgHpFcwF2lgGl0K9rmddAm4m90yqkCgYBS8Q5FmbXjG9ISFFH2tVEU39IRiJABQCsSOYgM3WOIy7+SBLeSVzg/4xQc5feEfEgkG4l4hId+G6UcoJwpjwk2OBn715we+YPIWWw9QWXip4OBfpUxWzNVJuspgruUi5vVPH7XsDVMaHajTAQHIbq5cdSuWG36zrUlMtYlPgaPMQKBgEYMj8d7a0DzXwyVJnE+rQU4Up65gUkMsV461EUFTIm2akdAo2VXySB5H2Qo8qg5XeIh6u8AUaIgAGYJWS0TYJok/Hbk2HOHw5ZWHxptnGA0vwflttaTR92YvQtjtpP0qJ+B1clf3IUd8JmdcJJIkAA8EomQMZ8rRKdlIqjiLJvr"
+
+/**
+ -----------------------------------
+ 微信支付需要配置的参数
+ -----------------------------------
+ */
+#import "WXApi.h"
+#import "WXApiManager.h"
+#import "MXWechatPayHandler.h"  //微信支付调用类
+#import "MXWechatSignAdaptor.h" //微信签名工具类
+#import "XMLDictionary.h"       //XML转换工具类
+// 开放平台登录https://open.weixin.qq.com的开发者中心获取APPID
+#define MXWechatAPPID       @"wx456660a0c14036a6"
+// 开放平台登录https://open.weixin.qq.com的开发者中心获取AppSecret。
+//#define MXWechatAPPSecret   @"e5d5a34eb45ad58b64d*bf2eef8b7*22"
+// 微信支付商户号
+#define MXWechatMCHID       @"1385562102"
+// 安全校验码（MD5）密钥，商户平台登录账户和密码登录http://pay.weixin.qq.com
+// 平台设置的“API密钥”，为了安全，请设置为以数字和字母组成的32字符串。
+#define MXWechatPartnerKey  @"Dd3SDGds5Fkkde9jDlrxq234Ff21oMge"
+
+
+/**
+ -----------------------------------
+ 微信下单接口
+ -----------------------------------
+ */
+
+#define kUrlWechatPay       @"https://api.mch.weixin.qq.com/pay/unifiedorder"
+
+
+/**
+ -----------------------------------
+ 统一下单请求参数键值
+ -----------------------------------
+ */
+
+#define WXAPPID         @"appid"            // 应用id
+#define WXMCHID         @"mch_id"           // 商户号
+#define WXNONCESTR      @"nonce_str"        // 随机字符串
+#define WXSIGN          @"sign"             // 签名
+#define WXBODY          @"body"             // 商品描述
+#define WXOUTTRADENO    @"out_trade_no"     // 商户订单号
+#define WXTOTALFEE      @"total_fee"        // 总金额
+#define WXEQUIPMENTIP   @"spbill_create_ip" // 终端IP
+#define WXNOTIFYURL     @"notify_url"       // 通知地址
+#define WXTRADETYPE     @"trade_type"       // 交易类型
+#define WXPREPAYID      @"prepay_id"        // 预支付交易会话
+
+
+//RGB颜色
+#define RGBA(r, g, b, a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+#define RGB(r, g, b) RGBA(r, g, b, 1.0f)
+
+//百度地图
+#define app_Version [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define IOS7 [[[UIDevice currentDevice]systemVersion] floatValue] >= 7.0
+
+
+//三级列表
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+
+        /** 腾讯地图key **/
+#define kSinaAppKey         @"2429283099"//
+#define kSinaRedirectURI    @"http://open.weibo.com/apps/2429283099/privilege/oauth"
+#define TencentMapAppID  @"JE6BZ-YM4CQ-77U5T-G5ANT-3Y4QF-O3BK5"
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+
+#endif /* PrefixHeader_pch */
