@@ -111,7 +111,7 @@
             }
         }
     }
-    if (fabs(topSpace - bottomSpace) < 5) {
+    if (topSpace - bottomSpace < 5 && topSpace - bottomSpace >= 0 ) {
         bottomSpace += 8;
     }
     topLabel = [[UILabel alloc] init];

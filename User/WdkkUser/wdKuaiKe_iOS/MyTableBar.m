@@ -12,6 +12,9 @@
 #import <AVFoundation/AVCaptureDevice.h>
 #import <AVFoundation/AVMediaFormat.h>
 @implementation MyTableBar
+{
+    NSMutableArray *subBarItems;
+}
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         [self createMiddelBarItem];
@@ -30,7 +33,8 @@
     self.backgroundColor = [UIColor whiteColor];
 
     [self addSubview:_midBarButtonItem];
-    
+    self.backgroundImage = [UIImage new];
+    self.shadowImage = [UIImage new];
 }
 
 - (void)midButtonAction{
@@ -99,10 +103,12 @@
     CGFloat buttonW = self.frame.size.width / 3;
     CGFloat buttonH = self.frame.size.height;
     NSInteger index = 0;
-    
+    subBarItems = [NSMutableArray array];
     for (UIView *button in self.subviews) {
+        if ([button isKindOfClass:[UIControl class]] && button != self.midBarButtonItem) {
+            [subBarItems addObject:button];
+        }
         if (![button isKindOfClass:[UIControl class]] || button == self.midBarButtonItem) continue;
-        
         CGFloat buttonX = buttonW * ((index == 1) ? (index + 1):index);
         button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
         
@@ -111,12 +117,13 @@
 }
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    
+
     UIView *hitView = nil;
     //NSLog(@"point:%@", NSStringFromCGPoint(point));
     UIButton *roundBtn = (UIButton *)[self viewWithTag:2000];
-    UIControl *leftBtn = (UIControl *)[self.subviews objectAtIndex:2];
-    UIControl *rightBtn = (UIControl *)[self.subviews objectAtIndex:3];
+    UIControl *leftBtn = (UIControl *)[subBarItems objectAtIndex:0];
+    UIControl *rightBtn = (UIControl *)[subBarItems objectAtIndex:1];
+
     BOOL pointInRound = [self touchPointInsideCircle:roundBtn.center radius:30 targetPoint:point];
     if (pointInRound&&!self.isHidden) {
         hitView = roundBtn;
