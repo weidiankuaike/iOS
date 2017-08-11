@@ -304,7 +304,7 @@
             annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
                                                           reuseIdentifier:userLocationStyleReuseIndetifier];
         }
-        annotationView.image = [UIImage imageNamed:@"userPosition"];
+        annotationView.layer.contents = [UIImage imageNamed:@"userPosition"];
 
         return annotationView;
     }
@@ -526,7 +526,6 @@
 -(void)locationButtonAction:(UIButton *)sender{
     [_mapView setCenterCoordinate: _currentLocation.coordinate animated:YES];
 
-
     //恢复缩放比例和角度
     [_mapView setZoomLevel:18 animated:YES];
 
@@ -539,7 +538,7 @@
 /** 设置检索本机地图 **/
 - (void)navigationButtonAction:(UIButton *)sender{
     NSString *title = @"选择本机地图";
-    NSString *message = @"A message should be a short, complete sentence.";
+    NSString *message = @"请选择您要使用的地图软件，进行导航。";
     NSString *cancelButtonTitle = NSLocalizedString(@"Cancel", nil);
     NSString *tencent = NSLocalizedString(@"腾讯地图", nil);
     NSString *baidu = NSLocalizedString(@"百度地图", nil);
@@ -548,7 +547,7 @@
 
 
     __block CLLocationCoordinate2D startCoor = self.mapView.userLocation.location.coordinate;
-    __block CLLocationCoordinate2D endCoor = CLLocationCoordinate2DMake(startCoor.latitude+0.01, startCoor.longitude+0.01);
+    __block CLLocationCoordinate2D endCoor = CLLocationCoordinate2DMake(startCoor.latitude + 0.01, startCoor.longitude + 0.01);
     _actionSheet = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
         
