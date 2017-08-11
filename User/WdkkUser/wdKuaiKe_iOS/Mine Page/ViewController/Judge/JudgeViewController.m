@@ -393,44 +393,12 @@
                 //全部上传完，继续上传别的
                 NSString * imager = [_uploadImageAry componentsJoinedByString:@","];
                 imagestr = [NSString stringWithFormat:@"%@,",imager];
-                
-                
-                [MBProgressHUD showMessage:@"请稍等"];
-                
-                NSString * urlstr = [NSString stringWithFormat:@"%@/api/user/evalMyOrder?token=%@&orderId=%@&tag=%@&loveFoodIds=%@&score=%d&content=%@&evalImage=%@&operation=1",commonUrl,Token,_orderId,tag,love,_scoreint,_feedbackview.text,imagestr];
-                
-                NSArray * urlary = [urlstr componentsSeparatedByString:@"?"];
-                
-                [[QYXNetTool shareManager]postNetWithUrl:urlary.firstObject urlBody:urlary.lastObject bodyStyle:QYXBodyString header:nil response:QYXJSON success:^(id result)
-                 {
-                     [MBProgressHUD hideHUD];
-                     NSLog(@"judeee%@",result);
-                     NSString * msgstr = [NSString stringWithFormat:@"%@",result[@"msgType"]];
-                     if ([msgstr isEqualToString:@"0"]) {
-                         
-                         for (UIViewController * view in self.navigationController.viewControllers) {
-                             if ([view isKindOfClass:[MyorderViewController class]]) {
-                                 
-                                 [self.navigationController popToViewController:view animated:YES];
-                             }
-                         }
-                     }
-                     
-                 } failure:^(NSError *error)
-                 {
-                     [MBProgressHUD hideHUD];
-                     [MBProgressHUD showError:@"网络错误"];
-                     
-                 }];
-                
-
-                
-                
+                [self uploaddateWithtag:tag love:love image:imager];
             });
            }
         else{
             imagestr = @"";
-
+            [self uploaddateWithtag:tag love:love image:imagestr];
         }
         
 
@@ -438,6 +406,41 @@
         
         [MBProgressHUD showError:@"给个评分吧"];
     }
+    
+    
+}
+- (void)uploaddateWithtag:(NSString*)tag love:(NSString*)love image:(NSString*)imagestr{
+    
+    
+    [MBProgressHUD showMessage:@"请稍等"];
+    
+    NSString * urlstr = [NSString stringWithFormat:@"%@/api/user/evalMyOrder?token=%@&orderId=%@&tag=%@&loveFoodIds=%@&score=%d&content=%@&evalImage=%@&operation=1",commonUrl,Token,_orderId,tag,love,_scoreint,_feedbackview.text,imagestr];
+    
+    NSArray * urlary = [urlstr componentsSeparatedByString:@"?"];
+    
+    [[QYXNetTool shareManager]postNetWithUrl:urlary.firstObject urlBody:urlary.lastObject bodyStyle:QYXBodyString header:nil response:QYXJSON success:^(id result)
+     {
+         [MBProgressHUD hideHUD];
+         NSLog(@"judeee%@",result);
+         NSString * msgstr = [NSString stringWithFormat:@"%@",result[@"msgType"]];
+         if ([msgstr isEqualToString:@"0"]) {
+             
+             for (UIViewController * view in self.navigationController.viewControllers) {
+                 if ([view isKindOfClass:[MyorderViewController class]]) {
+                     
+                     [self.navigationController popToViewController:view animated:YES];
+                 }
+             }
+         }
+         
+     } failure:^(NSError *error)
+     {
+         [MBProgressHUD hideHUD];
+         [MBProgressHUD showError:@"网络错误"];
+         
+     }];
+    
+
     
     
 }
