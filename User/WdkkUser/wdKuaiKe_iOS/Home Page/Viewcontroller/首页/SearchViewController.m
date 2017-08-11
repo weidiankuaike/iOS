@@ -332,7 +332,7 @@ static int a=0;
     if (isrefresh) {
         _pagenum = 1;
         //        isFirstCome = YES;
-       [modelary removeAllObjects];
+        [modelary removeAllObjects];
     }else{
         _pagenum++;
     }
@@ -346,72 +346,89 @@ static int a=0;
         [MBProgressHUD hideHUD];
         [self endRefresh];
         
-        if (![[result objectForKey:@"obj"] isNull]) {
-            
-            
-            [headview removeFromSuperview];
-           
-            NSString * pagestr = [result objectForKey:@"flag"];
-            if ([pagestr integerValue]<=_pagenum) {
+        
+        NSString * msgtypeStr = [NSString stringWithFormat:@"%@",result[@"msgType"]];
+        
+        if ([msgtypeStr isEqualToString:@"0"]) {
+            if (![[result objectForKey:@"obj"] isNull]) {
                 
-                searchTableView.mj_footer.hidden = YES;
+                
+                [headview removeFromSuperview];
+                
+                //            NSString * pagestr = [result objectForKey:@"flag"];
+                //            if ([pagestr integerValue]<=_pagenum) {
+                //
+                //                searchTableView.mj_footer.hidden = YES;
+                //            }
+                
+                _pushinteger = 2;
+                
+                NSArray * objary = [result objectForKey:@"obj"];
+                
+                for (int i =0; i<objary.count; i++) {
+                    
+                    SearchStoreModel * model = [SearchStoreModel mj_objectWithKeyValues:objary[i]];
+                    
+                    [modelary addObject:model];
+                    
+                }
+                
+                if (_tableheadview) {
+                    
+                    _tableheadview.hidden = NO;
+                }
+                else
+                {
+                    [self Creatsiftbtn];
+                    
+                }
+                if (searchTableView) {
+                    
+                    searchTableView.hidden = NO;
+                    
+                    [searchTableView reloadData];
+                    
+                }
+                else
+                {
+                    [self Creattable];
+                }
+                
+                
             }
-
-            _pushinteger = 2;
-            
-            NSArray * objary = [result objectForKey:@"obj"];
-            
-            for (int i =0; i<objary.count; i++) {
-                
-                SearchStoreModel * model = [SearchStoreModel mj_objectWithKeyValues:objary[i]];
-                
-                [modelary addObject:model];
-                
-            }
-            
-            if (_tableheadview) {
-                
-                _tableheadview.hidden = NO;
-            }
-            else
-            {
-                [self Creatsiftbtn];
-
-            }
-            if (searchTableView) {
-                
-                searchTableView.hidden = NO;
-                
-                [searchTableView reloadData];
-                
-            }
-            else
-            {
-                [self Creattable];
-            }
-        }else
+        }else if ([msgtypeStr isEqualToString:@"2"])
         {
-            [MBProgressHUD showError:@"没有匹配的商家"];
             headview.hidden = YES;
-            [modelary removeAllObjects];
-            if (searchTableView) {
+            if (_pagenum==1) {
+                [MBProgressHUD showError:@"没有匹配的商家"];
                 
-                searchTableView.hidden = NO;
-                [searchTableView reloadData];
+                [modelary removeAllObjects];
+                if (searchTableView) {
+                    
+                    searchTableView.hidden = NO;
+                    [searchTableView reloadData];
+                    
+                }
+                else
+                {
+                    [self Creattable];
+                }
+                searchTableView.mj_footer.hidden = YES;
                 
-            }
-            else
-            {
-                [self Creattable];
+            }else{
+                [MBProgressHUD showError:@"没有更多数据了"];
             }
             
             
+        }else{
+            [MBProgressHUD showError:@"网络参数错误"];
         }
         
     } failure:^(NSError *error) {
         
         [MBProgressHUD hideHUD];
         [self endRefresh];
+        [MBProgressHUD showError:@"请求失败"];
     }];
     
     
@@ -567,7 +584,6 @@ static int a=0;
  }
 - (void)Sift:(UIButton*)btn
 {
-    
     for (UIButton * selectBtn in _btnAry) {
         
         if (selectBtn.tag == btn.tag) {
@@ -586,6 +602,7 @@ static int a=0;
         searchTableView.mj_footer.hidden = NO;
         _daitiBtn = btn;
         [self creatChooseviewWithbtn:btn];
+        a +=1;
     }else{
         
         if (btn.tag== _daitiBtn.tag) {
@@ -594,15 +611,17 @@ static int a=0;
                 
                 [self.chooseview removeFromSuperview];
             }
-            a = 0;
+            
             btn.selected = NO;
+            a = 0;
         }
         else{
             _daitiBtn = btn;
             [self creatChooseviewWithbtn:btn];
         }
-    
+        
     }
+    
 }
 - (void)creatChooseviewWithbtn:(UIButton*)btn{//选择 视图
     
@@ -683,7 +702,7 @@ static int a=0;
             }
         }
         
-        
+        a = 0;
         
     };
     
@@ -691,7 +710,6 @@ static int a=0;
     
     [self.view addSubview:weakself.chooseview];
     
-    a+=1;
 
 }
 #pragma mark 移除选择视图

@@ -189,7 +189,12 @@
         {
         NSDictionary * objdict = [result objectForKey:@"obj"];
         if (![objdict isNull]) {
-                    
+            
+            
+            [_imageary removeAllObjects];
+            [_storeimage removeAllObjects];
+            [_titleAry removeAllObjects];
+            [_urlid removeAllObjects];
             NSArray * dataary = [objdict objectForKey:@"storeData"];
             for (int i =0; i<dataary.count; i++)
             {

@@ -470,7 +470,7 @@
 {
 //    if (_putInt==1) {
         [self.navigationController popToRootViewControllerAnimated:YES];
-         self.tabBarController.selectedIndex = 0;
+//         self.tabBarController.selectedIndex = 0;
 //    }else{
 //        [self.navigationController popViewControllerAnimated:YES];
 //
